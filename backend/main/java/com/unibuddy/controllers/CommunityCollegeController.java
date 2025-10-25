@@ -1,5 +1,5 @@
 package backend.main.java.com.unibuddy.controllers;
 
-public class TransferPlanController {
+public class CommunityCollegeController {
     
 }
