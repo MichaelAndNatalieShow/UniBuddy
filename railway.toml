@@ -1,5 +1,4 @@
 [build]
-builder = "paketobuildpacks/builder:base"
 buildCommand = "cd backend && mvn clean package -DskipTests"
 
 [deploy]
