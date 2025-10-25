@@ -2,22 +2,38 @@ package backend.main.java.com.unibuddy.models;
 
 import jakarta.persistence.*;
 import lombok.*;
+import java.util.List;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long userId;
-    private String userName;
-    private String userMajor;
-    private String targetCollege;
-    private String userSocial;
-    private String userPicture;
+    private String username;
+    private String email;
+    private String profilePictureUrl;
+    private String socialHandle;
 
+    private String currentMajor;
+
+    @ManyToOne
+    @JoinColumn(name = "community_college_id")
+    private CommunityCollege currentCollege;
+
+    @ManyToOne
+    @JoinColumn(name = "target_university_id")
+    private University targetUniversity;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "learning_preference_id", referencedColumnName = "id")
     private LearningPreference learningPreference;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<TransferPlan> transferPlans;
 }

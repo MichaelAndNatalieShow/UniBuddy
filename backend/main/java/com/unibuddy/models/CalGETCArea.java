@@ -8,15 +8,17 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CalGETCArea {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private int sectionNumber;
+    private int areaNumber;
     private String areaName;
-    private char sectionLetter;
+    private String sectionLetter;
     private String sectionName;
-    private String courseName;
+    private String courseNumber;
     private String courseTitle;
-    private int courseCredits;
+    private int units;
+    private String courseDesc;
 }
