@@ -1,7 +1,7 @@
 package backend.main.java.com.unibuddy.controllers;
 
-import org.framework.beans.factory.annotation.Autowired;
-import org.framework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 import com.unibuddy.services.UniversityService;
 import com.unibuddy.models.University;
 
@@ -9,28 +9,39 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/universities")
-@CrossOrigins(origins = "*")
+@CrossOrigin(origins = "*")
 public class UniversityController {
+
     @Autowired
     private UniversityService universityService;
 
     @GetMapping
-    public List<University> getAllUniversities(){
+    public List<University> getAllUniversities() {
         return universityService.getAllUniversities();
     }
 
     @GetMapping("/{id}")
-    public University getUniversityById(@PathVariable id){
+    public University getUniversityById(@PathVariable Long id) {
         return universityService.getUniversityById(id);
     }
 
     @PostMapping
-    public University createUniversity(@RequestBody university){
+    public University createUniversity(@RequestBody University university) {
         return universityService.saveUniversity(university);
     }
 
-    @GetMapping("/{id}")
-    public void deleteUniversity(@PathVariable id){
-        return universityService.deleteUniversity(id);
+    @PutMapping("/{id}")
+    public University updateUniversity(@PathVariable Long id, @RequestBody University updatedUniversity) {
+        University existing = universityService.getUniversityById(id);
+        if (existing == null) {
+            throw new RuntimeException("University not found with id " + id);
+        }
+        updatedUniversity.setId(id);
+        return universityService.saveUniversity(updatedUniversity);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteUniversity(@PathVariable Long id) {
+        universityService.deleteUniversity(id);
     }
 }

@@ -1,7 +1,7 @@
 package backend.main.java.com.unibuddy.controllers;
 
-import org.framework.beans.factory.annotation.Autowired;
-import org.framework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 import com.unibuddy.services.ProfessorService;
 import com.unibuddy.models.Professor;
 
@@ -9,28 +9,39 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/professors")
-@CrossOrigins(origins = "*")
+@CrossOrigin(origins = "*")
 public class ProfessorController {
+
     @Autowired
     private ProfessorService professorService;
 
     @GetMapping
-    public List<Professor> getAllProfessors(){
+    public List<Professor> getAllProfessors() {
         return professorService.getAllProfessors();
     }
 
     @GetMapping("/{id}")
-    public Professor getProfessorById(@PathVariable id){
+    public Professor getProfessorById(@PathVariable Long id) {
         return professorService.getProfessorById(id);
     }
 
     @PostMapping
-    public Professor createProfessor(@RequestBody professor){
+    public Professor createProfessor(@RequestBody Professor professor) {
         return professorService.saveProfessor(professor);
     }
 
-    @GetMapping("/{id}")
-    public void deleteProfessor(@PathVariable id){
-        return professorService.deleteProfessor(id);
+    @PutMapping("/{id}")
+    public Professor updateProfessor(@PathVariable Long id, @RequestBody Professor updatedProfessor) {
+        Professor existing = professorService.getProfessorById(id);
+        if (existing == null) {
+            throw new RuntimeException("Professor not found with id " + id);
+        }
+        updatedProfessor.setId(id);
+        return professorService.saveProfessor(updatedProfessor);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteProfessor(@PathVariable Long id) {
+        professorService.deleteProfessor(id);
     }
 }
