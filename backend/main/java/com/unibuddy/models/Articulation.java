@@ -11,4 +11,7 @@ public class Articulation {
     @Id
     @GeneratedValue(strategy = GeneratedType.IDENTITY)
     private String articulationTitle;
+    private String transferMajor;
+    private String degreeType;
+    private String college;
 }

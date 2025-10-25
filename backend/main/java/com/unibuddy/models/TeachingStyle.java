@@ -7,17 +7,16 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class LearningPreference {
+public class TeachingStyle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private float weightedScore;
     private float pacing;
-    private float clarity;
     private float workload;
     private float structure;
     private float availability;
     private float grading;
-    private float atmosphere;
+    private float atmosphere
 }
