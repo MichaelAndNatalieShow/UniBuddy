@@ -2,5 +2,5 @@
 builder = "paketobuildpacks/builder:base"
 buildCommand = "cd backend && mvn clean package -DskipTests"
 
-[start]
-command = "cd backend && java -jar target/*.jar"
+[deploy]
+startCommand = "cd backend && java -jar target/*.jar"
