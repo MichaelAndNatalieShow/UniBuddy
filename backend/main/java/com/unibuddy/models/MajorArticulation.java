@@ -21,4 +21,5 @@ public class MajorArticulation {
     private String ucCourseTitle;
     private String majorsApplicable;
     private String requirementType;
+    private String notes;
 }
