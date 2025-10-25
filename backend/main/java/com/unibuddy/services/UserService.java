@@ -1,31 +1,36 @@
 package backend.main.java.com.unibuddy.services;
 
-import org.framework.beans.factory.annotation.Autowired;
-import org.framework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import com.unibuddy.repositories.UserRepository;
 import com.unibuddy.models.User;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
-public class UserService{
+public class UserService {
 
     @Autowired
     private UserRepository userRepository;
 
-    public List<User> getAllUsers(){
+    public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
-    public User getUserById(Long userId){
-        return userRepository.findById(userId).orElse(null);
+    public Optional<User> getUserById(Long userId) {
+        return userRepository.findById(userId);
     }
 
-    public User saveUser(User user){
+    public User saveUser(User user) {
         return userRepository.save(user);
     }
 
-    public void deleteUser(Long Id){
-        return userRepository.deleteById(id);
+    public void deleteUser(Long id) {
+        userRepository.deleteById(id);
+    }
+
+    public Optional<User> getUserByUserId(String userId) {
+        return Optional.ofNullable(userRepository.findByUserId(userId));
     }
 }

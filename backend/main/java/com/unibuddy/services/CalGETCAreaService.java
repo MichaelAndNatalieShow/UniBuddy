@@ -1,27 +1,32 @@
 package backend.main.java.com.unibuddy.services;
 
-import org.framework.beans.factory.annotation.Autowired;
-import org.framework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import com.unibuddy.repositories.CalGETCAreaRepository;
 import com.unibuddy.models.CalGETCArea;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
-public class CalGETCService{
+public class CalGETCAreaService {
 
     @Autowired
     private CalGETCAreaRepository calGETCAreaRepository;
 
-    public List<CalGETCArea> getAllCalGETCAreas(){
-        return calGETCRepository.findAll();
+    public List<CalGETCArea> getAllCalGETCAreas() {
+        return calGETCAreaRepository.findAll();
     }
 
-    public Course saveCalGETC(CalGETC calGETC){
-        return calGETCRepository.save(calGETC);
+    public Optional<CalGETCArea> getCalGETCAreaById(Long id) {
+        return calGETCAreaRepository.findById(id);
     }
 
-    public void deleteCalGETCArea(Long Id){
-        return calGETCAreaRepository.deleteById(id);
+    public CalGETCArea saveCalGETCArea(CalGETCArea calGETCArea) {
+        return calGETCAreaRepository.save(calGETCArea);
+    }
+
+    public void deleteCalGETCArea(Long id) {
+        calGETCAreaRepository.deleteById(id);
     }
 }

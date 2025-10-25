@@ -1,31 +1,32 @@
 package backend.main.java.com.unibuddy.services;
 
-import org.framework.beans.factory.annotation.Autowired;
-import org.framework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import com.unibuddy.repositories.CommunityCollegeRepository;
 import com.unibuddy.models.CommunityCollege;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
-public class CommunityCollegeService{
+public class CommunityCollegeService {
 
     @Autowired
     private CommunityCollegeRepository communityCollegeRepository;
 
-    public List<CommunityCollege> getAllCommunityColleges(){
+    public List<CommunityCollege> getAllCommunityColleges() {
         return communityCollegeRepository.findAll();
     }
 
-    public Course getCommunityCollegeById(Long communityCollegeId){
-        return communityCollegeRepository.findById(communityCollegeId).orElse(null);
+    public Optional<CommunityCollege> getCommunityCollegeById(Long communityCollegeId) {
+        return communityCollegeRepository.findById(communityCollegeId);
     }
 
-    public Course saveCommunityCollege(CommunityCollege communityCollege){
+    public CommunityCollege saveCommunityCollege(CommunityCollege communityCollege) {
         return communityCollegeRepository.save(communityCollege);
     }
 
-    public void deleteCommunityCollege(Long Id){
-        return communityCollegeRepository.deleteById(id);
+    public void deleteCommunityCollege(Long id) {
+        communityCollegeRepository.deleteById(id);
     }
 }

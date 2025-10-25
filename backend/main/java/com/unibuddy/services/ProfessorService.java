@@ -1,31 +1,32 @@
 package backend.main.java.com.unibuddy.services;
 
-import org.framework.beans.factory.annotation.Autowired;
-import org.framework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import com.unibuddy.repositories.ProfessorRepository;
 import com.unibuddy.models.Professor;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
-public class ProfessorService{
+public class ProfessorService {
 
     @Autowired
     private ProfessorRepository professorRepository;
 
-    public List<Professor> getAllProfessors(){
+    public List<Professor> getAllProfessors() {
         return professorRepository.findAll();
     }
 
-    public TransferPlan getProfessorById(Long professorId){
-        return professorRepository.findById(professorId).orElse(null);
+    public Optional<Professor> getProfessorById(Long professorId) {
+        return professorRepository.findById(professorId);
     }
 
-    public Professor saveProfessor(Professor professor){
+    public Professor saveProfessor(Professor professor) {
         return professorRepository.save(professor);
     }
 
-    public void deleteProfessor(Long Id){
-        return professorRepository.deleteById(id);
+    public void deleteProfessor(Long id) {
+        professorRepository.deleteById(id);
     }
 }

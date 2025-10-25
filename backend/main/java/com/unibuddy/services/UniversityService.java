@@ -1,31 +1,32 @@
 package backend.main.java.com.unibuddy.services;
 
-import org.framework.beans.factory.annotation.Autowired;
-import org.framework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import com.unibuddy.repositories.UniversityRepository;
 import com.unibuddy.models.University;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
-public class UniversityService{
+public class UniversityService {
 
     @Autowired
     private UniversityRepository universityRepository;
 
-    public List<University> getAllUniversities(){
+    public List<University> getAllUniversities() {
         return universityRepository.findAll();
     }
 
-    public Course getUniversityById(Long universityId){
-        return universityRepository.findById(universityId).orElse(null);
+    public Optional<University> getUniversityById(Long universityId) {
+        return universityRepository.findById(universityId);
     }
 
-    public University saveUniversity(University university){
+    public University saveUniversity(University university) {
         return universityRepository.save(university);
     }
 
-    public void deleteUniversity(LongId){
-        return universityRepository.deleteById(id);
+    public void deleteUniversity(Long id) {
+        universityRepository.deleteById(id);
     }
 }
