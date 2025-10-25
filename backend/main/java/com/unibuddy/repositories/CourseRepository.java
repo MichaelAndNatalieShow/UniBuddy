@@ -1,5 +1,7 @@
 package backend.main.java.com.unibuddy.repositories;
 
-public class CourseRepository {
-    
+import org.springframework.data.jpa.repository.JpaRepository;
+import com.unibuddy.models.Course;
+public interface CourseRepository extends JpaRepository(String course, Long id){
+    Course findByCourseId(String id);
 }
