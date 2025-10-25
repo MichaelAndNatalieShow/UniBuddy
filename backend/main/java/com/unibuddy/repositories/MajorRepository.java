@@ -1,5 +1,7 @@
 package backend.main.java.com.unibuddy.repositories;
 
-public class MajorRepository {
-    
+import org.springframework.data.jpa.repository.JpaRepository;
+import com.unibuddy.models.Major;
+public interface MajorRepository extends JpaRepository(Major, Long){
+    Major findByMajorId(String id);
 }
