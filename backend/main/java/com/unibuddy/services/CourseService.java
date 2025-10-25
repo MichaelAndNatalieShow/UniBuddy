@@ -18,10 +18,10 @@ public class CourseService{
     }
 
     public Course getCourseById(Long courseId){
-        return courseRepository.findById(id).orElse(null);
+        return courseRepository.findById(courseId).orElse(null);
     }
 
-    public Course saveCouse(Course course){
+    public Course saveCourse(Course course){
         return courseRepository.save(course);
     }
 
