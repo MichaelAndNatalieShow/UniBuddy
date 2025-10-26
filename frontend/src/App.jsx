@@ -1,17 +1,25 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
 import PlannerPage from "./pages/PlannerPage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage";
 
 function Layout() {
   return (
-    <>
-      <Outlet />
-    </>
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+
+      <main className="flex-grow">
+        <Outlet />
+      </main>
+
+      <Footer />
+    </div>
   );
 }
 
@@ -19,15 +27,13 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Login page without Navbar */}
-        <Route path="/login" element={<LoginPage />} />
-
-        {/* All other pages use Layout (with Navbar) */}
         <Route element={<Layout />}>
           <Route index element={<HomePage />} /> {/* "/" */}
+          <Route path="login" element={<LoginPage />} />
           <Route path="planner" element={<PlannerPage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="contact" element={<ContactPage />} />
+          <Route path="signup" element={<SignupPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,30 +1,46 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import homeImage from "../assets/homeImage.png"; // ✅ import image from src/assets
+import { Link } from "react-router-dom";
+import homeImage from "../assets/homeImage.png";
 
 export default function HomePage() {
   return (
-    <div className="font-urbanist bg-cream min-h-screen overflow-hidden">
-      <Navbar />
-
-      <div className="flex flex-col md:flex-row items-center justify-center md:justify-between px-10 py-20 md:py-28 gap-10">
-        <div className="text-center md:text-left space-y-4">
-          <h2 className="text-squid text-5xl md:text-6xl font-bold">
-            Welcome to UniBuddy!
-          </h2>
+    <div className="font-urbanist bg-cream w-full flex flex-col items-center">
+      {/* MAIN CONTENT */}
+      <div className="flex flex-col md:flex-row items-center justify-center gap-12 max-w-6xl w-full text-center md:text-left mt-20 px-6 md:px-12 lg:px-20">
+        {/* LEFT TEXT SECTION */}
+        <div className="space-y-6 max-w-lg">
+          <h1 className="text-squid text-5xl md:text-6xl font-bold leading-tight">
+            Tired of guessing which classes to take?
+          </h1>
           <p className="text-[#1B2845] text-lg md:text-xl">
-            Your buddy helping you transition seamlessy from community college to a four-year university.
+            Let’s plan your transfer in minutes. Your buddy for a seamless move
+            from community college to university.
           </p>
+
+          <Link
+            to="/planner"
+            className="inline-block bg-royalblue text-white text-lg font-semibold px-8 py-4 rounded-2xl shadow-md hover:bg-squid transition-all"
+          >
+            Build My Future →
+          </Link>
         </div>
 
-        <div>
+        {/* IMAGE */}
+        <div className="flex justify-center">
           <img
             src={homeImage}
-            alt="A girl sitting"
-            className="w-[300px] md:w-[400px] lg:w-[450px]"
+            alt="Student planning their future"
+            className="w-[320px] md:w-[450px] lg:w-[500px] drop-shadow-lg"
           />
         </div>
       </div>
+
+      {/* FOOTER */}
+      <footer className="bg-cream w-full py-16 flex justify-center items-center mt-20 border-t border-[#d8d8d8]">
+        <p className="text-spacecadet text-lg">
+          © {new Date().getFullYear()} UniBuddy — Plan your path with confidence.
+        </p>
+      </footer>
     </div>
   );
 }
