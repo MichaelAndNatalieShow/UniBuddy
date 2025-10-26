@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar";
+import homeImage from "../assets/homeImage.png"; // ✅ import image from src/assets
 
 export default function HomePage() {
   return (
@@ -18,7 +19,7 @@ export default function HomePage() {
 
         <div>
           <img
-            src="/homeimage.png"
+            src={homeImage}
             alt="A girl sitting"
             className="w-[300px] md:w-[400px] lg:w-[450px]"
           />

@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import pfp from "../assets/pfp.png";
+import pfp from "../assets/profilePicture2.png";
 
 export default function ContactPage() {
   return (
