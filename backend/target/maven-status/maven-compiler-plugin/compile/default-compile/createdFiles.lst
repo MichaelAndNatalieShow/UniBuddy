@@ -7,6 +7,7 @@ com\unibuddy\models\TransferArticulation$TransferArticulationBuilder.class
 com\unibuddy\config\SupabaseConfig.class
 com\unibuddy\models\User$UserBuilder.class
 com\unibuddy\repositories\TransferArticulationRepository.class
+com\unibuddy\controllers\TestController.class
 com\unibuddy\models\CommunityCollege$CommunityCollegeBuilder.class
 com\unibuddy\models\Professor$ProfessorBuilder.class
 com\unibuddy\models\Professor.class
