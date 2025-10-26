@@ -13,7 +13,7 @@ export default function HomePage() {
             Welcome to UniBuddy!
           </h2>
           <p className="text-[#1B2845] text-lg md:text-xl">
-            Your buddy helping you transition from CC to Uni.
+            Your buddy helping you transition seamlessy from community college to a four-year university.
           </p>
         </div>
 
