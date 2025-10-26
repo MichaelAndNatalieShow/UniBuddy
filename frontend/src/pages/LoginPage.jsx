@@ -25,7 +25,7 @@ export default function LoginPage() {
       setError(error.message);
     } else {
       console.log("Login success:", data);
-      navigate("/home");
+      navigate("/");
     }
   };
 

@@ -35,7 +35,7 @@ export default function SignupPage() {
     } else {
       console.log("Signup success:", data);
       setSuccess("Account created successfully! Redirecting...");
-      setTimeout(() => navigate("/home"), 1500);
+      setTimeout(() => navigate("/"), 1500);
     }
   };
 
