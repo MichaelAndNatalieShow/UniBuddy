@@ -4,11 +4,11 @@ import pfp from "../assets/pfp.png";
 
 export default function ContactPage() {
   return (
-    <div className="font-urbanist bg-[#e6e2d4] min-h-screen">
+    <div className="font-urbanist bg-cream min-h-screen">
       <Navbar />
 
       <div className="text-center mt-10">
-        <h2 className="text-[#4375AE] text-5xl md:text-6xl font-bold">
+        <h2 className="text-royalblue text-5xl md:text-6xl font-bold">
           Contact Us
         </h2>
       </div>
@@ -20,16 +20,16 @@ export default function ContactPage() {
             alt="Natalie Luong Avatar"
             className="w-40 h-40 rounded-full mb-6"
           />
-          <h3 className="text-2xl font-semibold text-[#334978] mb-2">
+          <h3 className="text-2xl font-semibold text-squid mb-2">
             Natalie Luong
           </h3>
-          <p className="text-[#1B2845] text-lg leading-relaxed">
+          <p className="text-spacecadet text-lg leading-relaxed">
             Phone: 415-632-8084
             <br />
             Email:{" "}
             <a
               href="mailto:natalieluong1818@gmail.com"
-              className="text-[#4375AE] hover:underline"
+              className="text-royalblue hover:underline"
             >
               natalieluong1818@gmail.com
             </a>
@@ -39,7 +39,7 @@ export default function ContactPage() {
               href="https://www.linkedin.com/in/natalie-luong-4013b532b"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#4375AE] hover:underline"
+              className="text-royalblue hover:underline"
             >
               Natalie Luong
             </a>
@@ -52,16 +52,16 @@ export default function ContactPage() {
             alt="Michael Poniente Avatar"
             className="w-40 h-40 rounded-full mb-6"
           />
-          <h3 className="text-2xl font-semibold text-[#334978] mb-2">
+          <h3 className="text-2xl font-semibold text-squid mb-2">
             Michael Poniente
           </h3>
-          <p className="text-[#1B2845] text-lg leading-relaxed">
+          <p className="text-spacecadet text-lg leading-relaxed">
             Phone: 650-784-5183
             <br />
             Email:{" "}
             <a
               href="mailto:michaelwrites.biz@gmail.com"
-              className="text-[#4375AE] hover:underline"
+              className="text-royalblue hover:underline"
             >
               michaelwrites.biz@gmail.com
             </a>
@@ -71,7 +71,7 @@ export default function ContactPage() {
               href="https://www.linkedin.com/in/michael-poniente"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#4375AE] hover:underline"
+              className="text-royalblue hover:underline"
             >
               Michael Poniente
             </a>

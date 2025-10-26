@@ -7,34 +7,34 @@ export default function PlannerPage() {
   const [uc, setUc] = useState("option0");
 
   return (
-    <div className="font-urbanist bg-[#e6e2d4] min-h-screen relative overflow-hidden">
+    <div className="font-urbanist bg-cream min-h-screen relative overflow-hidden">
       {/* Navbar */}
       <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
 
       {/* Slide Menu */}
       <div
-        className={`fixed top-0 right-0 h-screen w-full max-w-[450px] bg-[#334978] text-white flex flex-col justify-center items-center text-4xl transition-all duration-300 z-20 ${
+        className={`fixed top-0 right-0 h-screen w-full max-w-[450px] bg-squid text-white flex flex-col justify-center items-center text-4xl transition-all duration-300 z-20 ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <ul className="space-y-8 text-center">
+        <ul className="space-y-8 text-center hover:text-squid">
           <li>
-            <a href="/home" className="hover:text-gray-300">
+            <a href="/home">
               Home
             </a>
           </li>
           <li>
-            <a href="/planner" className="hover:text-gray-300">
+            <a href="/planner">
               Planner
             </a>
           </li>
           <li>
-            <a href="/about" className="hover:text-gray-300">
+            <a href="/about">
               About
             </a>
           </li>
           <li>
-            <a href="/contact" className="hover:text-gray-300">
+            <a href="/contact">
               Contact
             </a>
           </li>
@@ -44,16 +44,16 @@ export default function PlannerPage() {
       {/* Page Content */}
       <div className="flex flex-col items-center justify-center px-6 py-16 space-y-10">
         {/* Title */}
-        <h2 className="text-[#4375AE] text-5xl md:text-6xl font-bold">
+        <h2 className="text-royalblue text-5xl md:text-6xl font-bold">
           My Planner
         </h2>
 
         {/* Summary Box */}
-        <div className="bg-white rounded-xl shadow-md w-full max-w-3xl p-8 text-center">
-          <h1 className="text-[#334978] text-3xl font-semibold mb-2">
+        <div className="bg-cream rounded-xl shadow-md w-full max-w-3xl p-8 text-center">
+          <h1 className="text-squid text-3xl font-semibold mb-2">
             My Summary
           </h1>
-          <p className="text-[#1B2845] text-lg">
+          <p className="text-spacecadet text-lg">
             Select your major and target UC to get started.
           </p>
         </div>
@@ -64,7 +64,7 @@ export default function PlannerPage() {
           <div className="flex flex-col text-center md:text-left">
             <label
               htmlFor="majorDropdown"
-              className="text-[#334978] text-xl font-semibold mb-2"
+              className="text-squid text-xl font-semibold mb-2"
             >
               My Major:
             </label>
@@ -72,7 +72,7 @@ export default function PlannerPage() {
               id="majorDropdown"
               value={major}
               onChange={(e) => setMajor(e.target.value)}
-              className="rounded-lg border border-[#334978] bg-white px-4 py-2 text-[#1B2845] focus:outline-none focus:ring-2 focus:ring-[#4375AE]"
+              className="rounded-lg border border-[#334978] bg-white px-4 py-2 text-spacecadet focus:outline-none focus:ring-2 focus:ring-[#4375AE]"
             >
               <option value="option0">Select a Major</option>
               <option value="option1">
@@ -85,9 +85,8 @@ export default function PlannerPage() {
               <option value="option6">Economics</option>
               <option value="option7">Business Administration</option>
               <option value="option8">Psychology</option>
-              <option value="option9">Computer Engineering</option>
-              <option value="option10">
-                Molecular, Cell, and Development Biology
+              <option value="option9">
+                Molecular, Cell, and Developmental Biology
               </option>
             </select>
           </div>

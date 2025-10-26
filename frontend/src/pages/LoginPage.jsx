@@ -34,7 +34,7 @@ export default function LoginPage() {
       className="min-h-screen flex justify-center items-center bg-cover bg-center font-urbanist"
       style={{ backgroundImage: "url('/background2.jpg')" }}
     >
-      <div className="w-[420px] text-white bg-white/10 border border-white/30 backdrop-blur-xl rounded-xl p-8 shadow-lg">
+      <div className="w-[420px] text-white bg-cream border border-white/30 backdrop-blur-xl rounded-xl p-8 shadow-lg">
         <h2 className="text-center text-lg font-bold mb-4">UniBuddy</h2>
 
         <form onSubmit={handleLogin}>
@@ -71,7 +71,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full h-12 bg-white text-gray-700 font-semibold rounded-full shadow-md hover:bg-gray-100 transition"
+            className="w-full h-12 bg-white text-squid font-semibold rounded-full shadow-md hover:bg-gray-100 transition"
           >
             {loading ? "Logging in..." : "Login"}
           </button>
