@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 
 export default function AboutPage() {
   return (
-    <div className="font-urbanist bg-cream min-h-screen">
+    <div className="font-urbanist bg-febreeze min-h-screen">
       <section className="flex flex-col items-center text-center px-6 md:px-20 pt-28 pb-16">
         <h2 className="text-spacecadet text-5xl md:text-6xl font-bold mb-8">
           Why We’re Building UniBuddy

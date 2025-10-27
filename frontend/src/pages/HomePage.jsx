@@ -4,7 +4,7 @@ import homeImage from "../assets/homeImage.png";
 
 export default function HomePage() {
   return (
-    <div className="font-urbanist bg-cream w-full flex flex-col items-center">
+    <div className="font-urbanist bg-febreeze w-full flex flex-col items-center">
       <div className="flex flex-col md:flex-row items-center justify-center gap-12 max-w-6xl w-full text-center md:text-left mt-20 px-6 md:px-12 lg:px-20">
         <div className="space-y-6 max-w-lg">
           <h1 className="text-squid text-5xl md:text-6xl font-bold leading-tight">

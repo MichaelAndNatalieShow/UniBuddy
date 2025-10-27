@@ -31,8 +31,7 @@ export default function LoginPage() {
 
   return (
     <div
-      className="min-h-screen flex justify-center items-center bg-cover bg-center font-urbanist"
-      style={{ backgroundImage: "url('/background2.jpg')" }}
+      className="min-h-screen flex justify-center items-center bg-febreeze bg-center font-urbanist"
     >
       <div className="w-[420px] text-spacecadet bg-cream/95 border border-spacecadet/10 backdrop-blur-xl rounded-xl p-8 shadow-lg">
         <h2 className="text-center text-2xl font-bold mb-6 text-royalblue">

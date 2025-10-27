@@ -76,7 +76,7 @@ By continuing to use Unibuddy, you confirm that you understand and accept our Te
   };
 
   return (
-    <footer className="bg-cream text-spacecadet text-sm py-16 mt-24 border-t border-[#d8d8d8]">
+    <footer className="bg-cream font-urbanist text-spacecadet text-sm py-16 mt-24">
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 px-6">
         <p className="text-center md:text-left text-base">
           © {new Date().getFullYear()} UniBuddy - Plan your path with confidence.
