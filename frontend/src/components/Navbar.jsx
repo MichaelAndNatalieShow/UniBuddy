@@ -14,29 +14,14 @@ export default function Navbar() {
 
         <ul className="hidden md:flex space-x-10 text-spacecadet font-normal items-center text-lg">
           <li>
-            <Link to="/" className="hover:text-royalblue transition">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/planner" className="hover:text-royalblue transition">
-              Planner
-            </Link>
-          </li>
-          <li>
             <Link to="/about" className="hover:text-royalblue transition">
               About
             </Link>
           </li>
-          <li>
-            <Link to="/contact" className="hover:text-royalblue transition">
-              Contact
-            </Link>
-          </li>
 
           <li>
-            <Link to="/login" className="hover:text-royalblue transition">
-              Login
+            <Link to="/planner" className="hover:text-royalblue transition">
+              Planner
             </Link>
           </li>
 
@@ -46,6 +31,17 @@ export default function Navbar() {
             </Link>
           </li>
 
+          <li>
+            <Link to="/login" className="hover:text-royalblue transition">
+              Login
+            </Link>
+          </li>
+          
+          <li>
+            <Link to="/contact" className="hover:text-royalblue transition">
+              Contact
+            </Link>
+          </li>
         </ul>
 
         <button
@@ -80,26 +76,21 @@ export default function Navbar() {
         >
           Home
         </Link>
-        <Link
-          to="/planner"
-          className="hover:text-febreeze font-normal"
-          onClick={() => setMenuOpen(false)}
-        >
-          Planner
-        </Link>
-        <Link
+
+         <Link
           to="/about"
           className="hover:text-febreeze font-normal"
           onClick={() => setMenuOpen(false)}
         >
           About
         </Link>
+
         <Link
-          to="/contact"
+          to="/planner"
           className="hover:text-febreeze font-normal"
           onClick={() => setMenuOpen(false)}
         >
-          Contact
+          Planner
         </Link>
 
         <Link
@@ -116,6 +107,14 @@ export default function Navbar() {
           onClick={() => setMenuOpen(false)}
         >
           Dashboard
+        </Link>
+
+        <Link
+          to="/contact"
+          className="hover:text-febreeze font-normal"
+          onClick={() => setMenuOpen(false)}
+        >
+          Contact
         </Link>
       </div>
 
