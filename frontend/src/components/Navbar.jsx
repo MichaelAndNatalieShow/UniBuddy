@@ -12,7 +12,6 @@ export default function Navbar() {
           <Link to="/">unibuddy</Link>
         </div>
 
-        {/* Desktop Links */}
         <ul className="hidden md:flex space-x-10 text-spacecadet font-normal items-center text-lg">
           <li>
             <Link to="/" className="hover:text-royalblue transition">
@@ -41,9 +40,14 @@ export default function Navbar() {
             </Link>
           </li>
 
+          <li>
+            <Link to="/dashboard" className="hover:text-royalblue transition">
+              Dashboard
+            </Link>
+          </li>
+
         </ul>
 
-        {/* Mobile Hamburger */}
         <button
           className="md:hidden relative w-10 h-8 flex flex-col justify-between items-center"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -65,7 +69,6 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       <div
         className={`fixed top-0 right-0 h-screen w-3/4 bg-squid text-cream flex flex-col justify-center items-center text-3xl space-y-8 transform transition-transform duration-300 z-50 ${menuOpen ? "translate-x-0" : "translate-x-full"
           }`}
@@ -106,9 +109,16 @@ export default function Navbar() {
         >
           Login
         </Link>
+
+        <Link
+          to="/dashboard"
+          className="hover:text-febreeze font-normal"
+          onClick={() => setMenuOpen(false)}
+        >
+          Dashboard
+        </Link>
       </div>
 
-      {/* Background overlay */}
       {menuOpen && (
         <div
           className="fixed inset-0 bg-spacecadet bg-opacity-40 md:hidden z-40"

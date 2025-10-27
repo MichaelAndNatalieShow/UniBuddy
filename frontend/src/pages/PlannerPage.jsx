@@ -397,7 +397,6 @@ export default function PlannerPage() {
                                 ETHN 585 – Ethnicity in Cinema
                             </p>
                         </CourseArea>
-
                     </div>
                 )}
             </div>

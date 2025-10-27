@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import pfp from "../assets/profilePicture2.png";
 
@@ -22,7 +23,6 @@ export default function ContactPage() {
             Natalie Luong
           </h3>
           <p className="text-spacecadet text-lg leading-relaxed">
-            Phone: 415-632-8084
             <br />
             Email:{" "}
             <a
@@ -54,7 +54,6 @@ export default function ContactPage() {
             Michael Poniente
           </h3>
           <p className="text-spacecadet text-lg leading-relaxed">
-            Phone: 650-784-5183
             <br />
             Email:{" "}
             <a
