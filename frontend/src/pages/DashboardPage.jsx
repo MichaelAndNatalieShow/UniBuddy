@@ -12,7 +12,7 @@ export default function DashboardPage() {
 
       sections.forEach((id) => {
         const el = document.getElementById(id);
-        if (el && window.scrollY >= el.offsetTop - 150) {
+        if (el && window.scrollY >= el.offsetTop - 200) {
           current = id;
         }
       });
@@ -26,43 +26,31 @@ export default function DashboardPage() {
 
   return (
     <div className="flex min-h-screen bg-cream font-urbanist">
-      <div className="w-64 bg-white shadow-md p-6 sticky top-0 h-screen flex flex-col">
+      {/* Sidebar */}
+      <aside className="w-64 fixed top-0 left-0 h-full bg-white shadow-md p-6 flex flex-col overflow-y-auto">
         <h2 className="text-2xl font-bold text-royalblue mb-8">Dashboard</h2>
         <nav className="space-y-4">
-          <a
-            href="#profile"
-            className={`block px-3 py-2 rounded-lg font-medium transition ${
-              activeSection === "profile"
-                ? "bg-royalblue text-white"
-                : "text-squid hover:bg-gray-100"
-            }`}
-          >
-            Profile
-          </a>
-          <a
-            href="#targets"
-            className={`block px-3 py-2 rounded-lg font-medium transition ${
-              activeSection === "targets"
-                ? "bg-royalblue text-white"
-                : "text-squid hover:bg-gray-100"
-            }`}
-          >
-            Target Colleges
-          </a>
-          <a
-            href="#settings"
-            className={`block px-3 py-2 rounded-lg font-medium transition ${
-              activeSection === "settings"
-                ? "bg-royalblue text-white"
-                : "text-squid hover:bg-gray-100"
-            }`}
-          >
-            Settings
-          </a>
+          {["profile", "targets", "settings"].map((id) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              className={`block px-3 py-2 rounded-lg font-medium transition ${
+                activeSection === id
+                  ? "bg-royalblue text-white"
+                  : "text-squid hover:bg-gray-100"
+              }`}
+            >
+              {id === "profile"
+                ? "Profile"
+                : id === "targets"
+                ? "Target Colleges"
+                : "Settings"}
+            </a>
+          ))}
         </nav>
-      </div>
+      </aside>
 
-      <div className="flex-1 p-10 space-y-24">
+      <main className="flex-1 ml-64 p-10 space-y-24">
         <section id="profile" className="scroll-mt-24">
           <h2 className="text-3xl font-bold text-royalblue mb-6">Profile</h2>
           <div className="bg-white rounded-xl shadow-md p-8 flex items-center space-x-10">
@@ -97,6 +85,7 @@ export default function DashboardPage() {
           </div>
         </section>
 
+        {/* Target Colleges Section */}
         <section id="targets" className="scroll-mt-24">
           <h2 className="text-3xl font-bold text-royalblue mb-6">
             Target Colleges
@@ -115,15 +104,13 @@ export default function DashboardPage() {
           </div>
         </section>
 
-        <section id="settings" className="scroll-mt-24">
+        <section id="settings" className="scroll-mt-24 mb-20">
           <h2 className="text-3xl font-bold text-royalblue mb-6">Settings</h2>
           <div className="bg-white rounded-xl shadow-md p-8">
-            <p className="text-gray-600">
-              Settings options will go here
-            </p>
+            <p className="text-gray-600">Settings options will go here</p>
           </div>
         </section>
-      </div>
+      </main>
     </div>
   );
 }
