@@ -28,7 +28,7 @@ export default function DashboardPage() {
     <div className="flex min-h-screen bg-cream font-urbanist">
       {/* Sidebar */}
       <aside className="w-64 fixed top-0 left-0 h-full bg-white shadow-md p-6 flex flex-col overflow-y-auto">
-        <h2 className="text-2xl font-bold text-royalblue mb-8">Dashboard</h2>
+        <h2 className="text-2xl font-bold text-royalblue mt-48">Dashboard</h2>
         <nav className="space-y-4">
           {["profile", "targets", "settings"].map((id) => (
             <a
