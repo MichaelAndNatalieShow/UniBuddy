@@ -5,7 +5,7 @@ import pfp from "../assets/profilePicture2.png";
 
 export default function ContactPage() {
   return (
-    <div className="font-urbanist bg-cream min-h-screen">
+    <div className="font-urbanist bg-febreeze min-h-screen">
       <div className="text-center mt-10">
         <h2 className="text-royalblue text-5xl md:text-6xl font-bold">
           Contact Us
