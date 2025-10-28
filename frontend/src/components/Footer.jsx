@@ -76,7 +76,7 @@ By continuing to use Unibuddy, you confirm that you understand and accept our Te
   };
 
   return (
-    <footer className="bg-cream font-urbanist text-spacecadet text-sm py-16 mt-24">
+    <footer className="bg-febreeze font-urbanist text-spacecadet text-sm py-16 mt-24">
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 px-6">
         <p className="text-center md:text-left text-base">
           © {new Date().getFullYear()} UniBuddy - Plan your path with confidence.
@@ -95,7 +95,6 @@ By continuing to use Unibuddy, you confirm that you understand and accept our Te
         </div>
       </div>
 
-      {/* MODAL */}
       {activeDoc && (
         <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 px-4">
           <div className="bg-white max-w-2xl w-full rounded-xl shadow-xl p-6 overflow-y-auto max-h-[80vh]">

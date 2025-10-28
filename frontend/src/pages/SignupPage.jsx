@@ -45,7 +45,7 @@ export default function SignupPage() {
     >
       <div className="w-[420px] text-spacecadet bg-cream/95 border border-spacecadet/10 backdrop-blur-xl rounded-xl p-8 shadow-lg">
         <h2 className="text-center text-2xl font-bold mb-6 text-royalblue">
-          UniBuddy
+          unibuddy
         </h2>
 
         <form onSubmit={handleSignup}>

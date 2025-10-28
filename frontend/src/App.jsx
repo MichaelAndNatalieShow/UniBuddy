@@ -12,7 +12,7 @@ import DashboardPage from "./pages/DashboardPage";
 
 function Layout() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex bg-febreeze flex-col min-h-screen">
       <Navbar />
 
       <main className="flex-grow">
