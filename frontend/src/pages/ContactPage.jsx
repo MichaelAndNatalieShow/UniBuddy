@@ -23,7 +23,7 @@ export default function ContactPage() {
             Natalie Luong
           </h3>
           <p className="text-spacecadet text-lg leading-relaxed">
-            <br />
+            {/* <br />
             Email:{" "}
             <a
               href="mailto:natalieluong1818@gmail.com"
@@ -31,7 +31,7 @@ export default function ContactPage() {
             >
               natalieluong1818@gmail.com
             </a>
-            <br />
+            <br /> */}
             LinkedIn:{" "}
             <a
               href="https://www.linkedin.com/in/natalie-luong-4013b532b"
@@ -54,7 +54,7 @@ export default function ContactPage() {
             Michael Poniente
           </h3>
           <p className="text-spacecadet text-lg leading-relaxed">
-            <br />
+            {/* <br />
             Email:{" "}
             <a
               href="mailto:michaelwrites.biz@gmail.com"
@@ -62,7 +62,7 @@ export default function ContactPage() {
             >
               michaelwrites.biz@gmail.com
             </a>
-            <br />
+            <br /> */}
             LinkedIn:{" "}
             <a
               href="https://www.linkedin.com/in/michael-poniente"
