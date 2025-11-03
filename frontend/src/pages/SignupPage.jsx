@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { supabase } from "../supabaseClient";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function SignupPage() {
   const navigate = useNavigate();
@@ -52,9 +52,7 @@ export default function SignupPage() {
   return (
     <div className="min-h-screen flex justify-center items-center bg-febreeze font-urbanist">
       <div className="w-[420px] text-spacecadet bg-cream/95 border border-spacecadet/10 backdrop-blur-xl rounded-xl p-8 shadow-lg">
-        <h2 className="text-center text-2xl font-bold mb-6 text-royalblue">
-          unibuddy
-        </h2>
+        <h2 className="text-center text-2xl font-bold mb-6 text-royalblue">unibuddy</h2>
 
         <form onSubmit={handleSignup}>
           <h1 className="text-3xl text-center font-semibold mb-8">Sign Up</h1>
@@ -106,18 +104,18 @@ export default function SignupPage() {
           <div className="text-sm text-center mt-6">
             <p>
               Already have an account?{" "}
-              <a href="/login" className="font-semibold text-royalblue hover:underline">
+              <Link to="/login" className="font-semibold text-royalblue hover:underline">
                 Login
-              </a>
+              </Link>
             </p>
           </div>
         </form>
 
         <h3 className="text-center text-sm font-light mt-6">
           Other questions?{" "}
-          <a href="/contact" className="font-semibold text-royalblue hover:underline">
+          <Link to="/contact" className="font-semibold text-royalblue hover:underline">
             Contact Us
-          </a>
+          </Link>
         </h3>
       </div>
     </div>
