@@ -1,6 +1,0 @@
-Django>=5.2.7
-djangorestframework
-psycopg2-binary
-gunicorn
-python-dotenv
-PyMuPDF
