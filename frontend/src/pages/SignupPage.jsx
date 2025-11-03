@@ -23,26 +23,34 @@ export default function SignupPage() {
 
     setLoading(true);
 
-    const { data, error } = await supabase.auth.signUp({
-      email,
-      password,
-    });
+    try {
+      const { data: authData, error: authError } = await supabase.auth.signUp({
+        email,
+        password,
+      });
 
-    setLoading(false);
+      if (authError) throw authError;
 
-    if (error) {
-      setError(error.message);
-    } else {
-      console.log("Signup success:", data);
+      const { data: userData, error: userError } = await supabase
+        .from("users")
+        .insert([{ id: authData.user.id, email: authData.user.email }]);
+
+      if (userError) throw userError;
+
       setSuccess("Account created successfully! Redirecting...");
-      setTimeout(() => navigate("/"), 1500);
+      console.log("Signup success:", authData, userData);
+
+      setTimeout(() => navigate("/dashboard"), 1500);
+    } catch (err) {
+      console.error("Signup error:", err);
+      setError(err.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div
-      className="min-h-screen flex justify-center items-center bg-febreeze bg-center font-urbanist"
-    >
+    <div className="min-h-screen flex justify-center items-center bg-febreeze font-urbanist">
       <div className="w-[420px] text-spacecadet bg-cream/95 border border-spacecadet/10 backdrop-blur-xl rounded-xl p-8 shadow-lg">
         <h2 className="text-center text-2xl font-bold mb-6 text-royalblue">
           unibuddy
@@ -60,7 +68,6 @@ export default function SignupPage() {
               onChange={(e) => setEmail(e.target.value)}
               className="w-full h-12 bg-white/70 text-spacecadet placeholder-spacecadet/60 border border-spacecadet/30 rounded-full px-5 pr-12 focus:outline-none focus:ring-2 focus:ring-royalblue/40"
             />
-            <i className="bx bxs-envelope absolute right-5 top-1/2 -translate-y-1/2 text-xl text-spacecadet/70"></i>
           </div>
 
           <div className="relative mb-6">
@@ -72,7 +79,6 @@ export default function SignupPage() {
               onChange={(e) => setPassword(e.target.value)}
               className="w-full h-12 bg-white/70 text-spacecadet placeholder-spacecadet/60 border border-spacecadet/30 rounded-full px-5 pr-12 focus:outline-none focus:ring-2 focus:ring-royalblue/40"
             />
-            <i className="bx bxs-lock-alt absolute right-5 top-1/2 -translate-y-1/2 text-xl text-spacecadet/70"></i>
           </div>
 
           <div className="relative mb-4">
@@ -84,15 +90,10 @@ export default function SignupPage() {
               onChange={(e) => setConfirmPassword(e.target.value)}
               className="w-full h-12 bg-white/70 text-spacecadet placeholder-spacecadet/60 border border-spacecadet/30 rounded-full px-5 pr-12 focus:outline-none focus:ring-2 focus:ring-royalblue/40"
             />
-            <i className="bx bxs-lock absolute right-5 top-1/2 -translate-y-1/2 text-xl text-spacecadet/70"></i>
           </div>
 
-          {error && (
-            <p className="text-red-500 text-center text-sm mb-3">{error}</p>
-          )}
-          {success && (
-            <p className="text-green-600 text-center text-sm mb-3">{success}</p>
-          )}
+          {error && <p className="text-red-500 text-center text-sm mb-3">{error}</p>}
+          {success && <p className="text-green-600 text-center text-sm mb-3">{success}</p>}
 
           <button
             type="submit"

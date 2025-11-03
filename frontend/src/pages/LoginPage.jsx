@@ -14,25 +14,42 @@ export default function LoginPage() {
     setLoading(true);
     setError("");
 
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
+    try {
+      const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (authError) {
+        setError(authError.message);
+        setLoading(false);
+        return;
+      }
+
+      const { data: userData, error: userError } = await supabase
+        .from("users")
+        .upsert({
+          id: authData.user.id,
+          email: authData.user.email,
+          created_at: new Date(),
+        });
+
+      if (userError) {
+        console.error("Error upserting user:", userError.message);
+      }
+
+      console.log("Login success:", authData);
+      navigate("/"); 
+    } catch (err) {
+      console.error(err);
+      setError("Unexpected error occurred.");
+    }
 
     setLoading(false);
-
-    if (error) {
-      setError(error.message);
-    } else {
-      console.log("Login success:", data);
-      navigate("/");
-    }
   };
 
   return (
-    <div
-      className="min-h-screen flex justify-center items-center bg-febreeze bg-center font-urbanist"
-    >
+    <div className="min-h-screen flex justify-center items-center bg-febreeze bg-center font-urbanist">
       <div className="w-[420px] text-spacecadet bg-cream/95 border border-spacecadet/10 backdrop-blur-xl rounded-xl p-8 shadow-lg">
         <h2 className="text-center text-2xl font-bold mb-6 text-royalblue">
           unibuddy
