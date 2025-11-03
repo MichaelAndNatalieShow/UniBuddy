@@ -28,28 +28,30 @@ export default function LoginPage() {
 
       const { data: userData, error: userError } = await supabase
         .from("users")
-        .upsert({
-          id: authData.user.id,
-          email: authData.user.email,
-          created_at: new Date(),
-        });
+        .upsert([
+          {
+            id: authData.user.id,
+            email: authData.user.email,
+            updated_at: new Date(),
+          },
+        ]);
 
       if (userError) {
-        console.error("Error upserting user:", userError.message);
+        console.warn("Warning: Could not upsert user row:", userError.message);
       }
 
-      console.log("Login success:", authData);
-      navigate("/"); 
+      console.log("Login success:", authData, userData);
+      navigate("/dashboard");
     } catch (err) {
       console.error(err);
-      setError("Unexpected error occurred.");
+      setError(err.message || "Unexpected error occurred.");
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center bg-febreeze bg-center font-urbanist">
+    <div className="min-h-screen flex justify-center items-center bg-febreeze font-urbanist">
       <div className="w-[420px] text-spacecadet bg-cream/95 border border-spacecadet/10 backdrop-blur-xl rounded-xl p-8 shadow-lg">
         <h2 className="text-center text-2xl font-bold mb-6 text-royalblue">unibuddy</h2>
 
@@ -65,7 +67,6 @@ export default function LoginPage() {
               onChange={(e) => setEmail(e.target.value)}
               className="w-full h-12 bg-white/70 text-spacecadet placeholder-spacecadet/60 border border-spacecadet/30 rounded-full px-5 pr-12 focus:outline-none focus:ring-2 focus:ring-royalblue/40"
             />
-            <i className="bx bxs-user absolute right-5 top-1/2 -translate-y-1/2 text-xl text-spacecadet/70"></i>
           </div>
 
           <div className="relative mb-4">
@@ -77,7 +78,6 @@ export default function LoginPage() {
               onChange={(e) => setPassword(e.target.value)}
               className="w-full h-12 bg-white/70 text-spacecadet placeholder-spacecadet/60 border border-spacecadet/30 rounded-full px-5 pr-12 focus:outline-none focus:ring-2 focus:ring-royalblue/40"
             />
-            <i className="bx bxs-lock-alt absolute right-5 top-1/2 -translate-y-1/2 text-xl text-spacecadet/70"></i>
           </div>
 
           {error && <p className="text-red-500 text-center text-sm mb-3">{error}</p>}
