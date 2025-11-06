@@ -6,7 +6,7 @@ export default function DashboardPage() {
   const [activeSection, setActiveSection] = useState("profile");
   const [loading, setLoading] = useState(true);
   const [userData, setUserData] = useState({
-    name: "",
+    user_name: "",
     school: "",
     major: "",
     targetColleges: [],
@@ -33,7 +33,7 @@ export default function DashboardPage() {
         setError(error.message);
       } else if (data) {
         setUserData({
-          name: data.name || "",
+          user_name: data.user_name || "",
           school: data.school || "",
           major: data.major || "",
           targetColleges: data.target_colleges || [],
@@ -80,7 +80,7 @@ export default function DashboardPage() {
     const { error: updateError } = await supabase
       .from("users")
       .update({
-        name: userData.name,
+        user_name: userData.user_name,
         school: userData.school,
         major: userData.major,
         target_colleges: userData.targetColleges,
@@ -133,8 +133,8 @@ export default function DashboardPage() {
                   <p className="text-gray-500 text-sm">Name</p>
                   <input
                     type="text"
-                    value={userData.name}
-                    onChange={(e) => setUserData({ ...userData, name: e.target.value })}
+                    value={userData.user_name}
+                    onChange={(e) => setUserData({ ...userData, user_name: e.target.value })}
                     className="w-full border rounded-lg p-3 bg-gray-50 text-squid"
                   />
                 </div>
