@@ -55,6 +55,12 @@ export default function PlannerPage() {
                             <option value="UC Berkeley">UC Berkeley</option>
                             <option value="UC Los Angeles">UC Los Angeles</option>
                             <option value="UC San Diego">UC San Diego</option>
+                            <option value="UC Irvine">UC Irvine</option>
+                            <option value="UC Santa Barbara">UC Santa Barbara</option>
+                            <option value="UC Davis">UC Davis</option>
+                            <option value="UC Riverside">UC Riverside</option>
+                            <option value="UC Santa Cruz">UC Santa Cruz</option>
+                            <option value="UC Merced">UC Merced</option>
                         </select>
                     </div>
 
